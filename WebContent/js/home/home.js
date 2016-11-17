@@ -1,6 +1,6 @@
 var vm = angular.module('homeApp',[]);
 
-vm.controller('Aaa',['$scope','$http',function($scope,$http){
+vm.controller('homeList',['$scope','$http',function($scope,$http){
 	
 	var username=window.localStorage.getItem("username");
 	var password=window.localStorage.getItem("password");
@@ -39,12 +39,12 @@ vm.controller('Aaa',['$scope','$http',function($scope,$http){
 		});
 	}
 	
-	$scope.choose=function(e){
+	$scope.choose=function(mes){
 		
 		$http({
 			method:'POST',
 			params:{
-				"manageID":e
+				"manageID":mes
 	           
 			},
 			url:'http://localhost:8080/DibikeManagement/manage/login.do',
