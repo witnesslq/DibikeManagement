@@ -32,8 +32,10 @@
                         dataType:"json",
                         success : function(result) {
                             if(result.status==0){
+                            	
                             	window.localStorage.setItem("username",username);
                             	window.localStorage.setItem("password",password);
+                            	
                           		window.location.href='/DibikeManagement/home.html';
                             	
                             }else{
