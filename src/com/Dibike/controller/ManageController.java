@@ -63,14 +63,19 @@ public class ManageController {
 		if(manage_role.getRoleID().equals("2")){
 			manage_role.setRoleID("3");
 			manageService.updateManage_role(manage_role);
+			result.setStatus("0");
+			result.setMsg("更改成功");
+			result.setData("普通员工");
+			return result;
 		}
 		if(manage_role.getRoleID().equals("3")){
 			manage_role.setRoleID("2");
 			manageService.updateManage_role(manage_role);
+			result.setStatus("0");
+			result.setMsg("更改成功");
+			result.setData("部门管理员");
+			return result;
 		}
-		result.setStatus("0");
-		result.setMsg("更改成功");
-		result.setData(manage_role);
 		return result;
 	}
 	
