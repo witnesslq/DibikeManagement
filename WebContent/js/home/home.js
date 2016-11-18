@@ -9,7 +9,7 @@ vm.controller('homeList',['$scope','$http',function($scope,$http){
 		method:'POST',
 		params:{
 			"username":username,
-            "password": password
+            "password":password
 		},
 		url:'http://localhost:8080/DibikeManagement/manage/login.do',
 		dataType:'json',
