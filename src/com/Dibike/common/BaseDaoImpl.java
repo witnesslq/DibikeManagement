@@ -24,22 +24,6 @@ import org.springframework.transaction.annotation.Transactional;
 @SuppressWarnings("all")
 public class BaseDaoImpl<T> implements BaseDao<T> {
 
-	// private Class<T> clazz;
-	//
-	// /**
-	// * ͨ���췽��ָ��DAO�ľ���ʵ����
-	// */
-	// public BaseDaoImpl() {
-	// ParameterizedType type = (ParameterizedType)
-	// this.getClass().getGenericSuperclass();
-	// clazz = (Class<T>) type.getActualTypeArguments()[0];
-	// System.out.println("DAO����ʵʵ�����ǣ�" + this.clazz.getName());
-	// }
-
-	/**
-	 * ��DAO��ע��SessionFactory
-	 */
-	
 	
 	
 	@Resource
@@ -67,7 +51,10 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	}
 
 	public void update(T o) {
-		this.getCurrentSession().update(o);
+		 Session session=this.getCurrentSession();
+		 Transaction tx=session.beginTransaction();
+		 session.update(o);
+		 tx.commit();
 	}
 
 	public void saveOrUpdate(T o) {

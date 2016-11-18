@@ -10,12 +10,7 @@ import com.Dibike.entity.Manage_role;
 
 public interface BaseDao<T> {
 
-	/**
-	 * ����һ������
-	 * 
-	 * @param o
-	 * @return
-	 */
+	
 	public Serializable save(T o);
 
 	/**
