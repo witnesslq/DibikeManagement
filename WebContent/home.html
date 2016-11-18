@@ -40,7 +40,7 @@
                     		<tr ng-repeat="data in jobList">
                     			<td ng-bind="data.manage_name"></td>
                     			<td ng-bind="data.role_name"></td>
-                    			<td ng-bind="'更换角色'" ng-click="choose(data.manageID)"></td>
+                    			<td ng-bind="'更换角色'" ng-click="choose(data.manageID,data.role_name)"></td>
                     		</tr>	
                     	</tbody>
                     </table>		
