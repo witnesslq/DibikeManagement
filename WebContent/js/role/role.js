@@ -48,7 +48,11 @@ vm.controller('homeList',['$scope','$http',function($scope,$http){
 			
 			$scope.job=result.data;
 			
-			$scope.jobList[index].role_name=($scope.jobList[index].role_name,$scope.job);
+			//$scope.jobList.splice(0,1,$scope.job);
+			
+			console.log($scope.jobList[index]);
+			
+			$scope.jobList[index].splice(0,1,$scope.job);
 			
 		}).error(function(result){
 			

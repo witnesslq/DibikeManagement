@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="./css/home.css">
+        <script type="text/javascript" src="./js/jquery.min.js"></script>
+       	<script type="text/javascript" src="./js/html5shiv.js"></script>
+        <script type="text/javascript" src="./js/angular.min.js"></script>
+        <script type="text/javascript" src="./js/home/role.js"></script>
+        <script type="text/javascript">
+        	
+        	function logout(){
+        		
+        		localStorage.removeItem("username");
+        		localStorage.removeItem("password");
+    			window.location.href="./login.html";
+	                
+	        }
+        	
+        </script>
+    </head>
+    <body ng-app='homeApp' ng-controller='homeList'>
+        <header class="header" ng-include="'./component/header.html'"></header>
+        <section class="main">
+            <div class="container" >
+                <aside class="menu_box" ng-include="'./component/left.html'"></aside>
+                <section class="section-box">
+                    <table>
+                    	<thead>
+                    		<tr>
+                    			<th>姓名</th>
+                    			<th>职位</th>
+                    			<th>操作</th>
+                    		</tr>	
+                    	</thead>
+                    	<tbody>
+                    		<tr ng-repeat="data in jobList track by $index">
+                    			<td ng-bind="data.manage_name"></td>
+                    			<td ng-bind="data.role_name"></td>
+                    			<td ng-bind="'更换角色'" ng-click="choose(data.manageID,$index)"></td>
+                    		</tr>	
+                    	</tbody>
+                    </table>		
+                    
+                </section>
+            </div>
+        </section>
+        <footer class="footer" ng-include="'./component/footer.html'"></footer>
+    </body>
+</html>
