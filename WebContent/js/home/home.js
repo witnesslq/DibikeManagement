@@ -11,7 +11,7 @@ vm.controller('homeList',['$scope','$http',function($scope,$http){
 			"username":username,
             "password":password
 		},
-		url:'http://localhost:8080/DibikeManagement/manage/login.do',
+		url:'/DibikeManagement/manage/login.do',
 		dataType:'json',
 		
 	}).success(function(result){
@@ -26,7 +26,7 @@ vm.controller('homeList',['$scope','$http',function($scope,$http){
 	
 	$http({
 		method:'POST',
-		url:'http://localhost:8080/DibikeManagement/manage/role.do',
+		url:'/DibikeManagement/manage/role.do',
 		dataType:'json',
 	}).success(function(result){
 		$scope.jobList=result.data;
@@ -36,25 +36,19 @@ vm.controller('homeList',['$scope','$http',function($scope,$http){
 	});
 	
 	
-	$scope.choose=function(mes,name){
+	$scope.choose=function(mes,index){
 		
 		$http({
 			method:'POST',
 			params:{
 				"manageID":mes
 	        },
-			url:'http://localhost:8080/DibikeManagement/manage/updateRole.do',
+			url:'/DibikeManagement/manage/updateRole.do',
 			dataType:'json',
 			
 		}).success(function(result){
 			
-			console.log(result.data);
-			console.log(name);
-			name=result.data;
-			console.log(name);
 			
-			
-			//window.location.reload();
 			
 		}).error(function(result){
 			
