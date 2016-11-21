@@ -10,17 +10,7 @@
        	<script type="text/javascript" src="./js/html5shiv.js"></script>
         <script type="text/javascript" src="./js/angular.min.js"></script>
         <script type="text/javascript" src="./js/home/home.js"></script>
-        <script type="text/javascript">
-        	
-        	function logout(){
-        		
-        		localStorage.removeItem("username");
-        		localStorage.removeItem("password");
-    			window.location.href="./login.html";
-	                
-	        }
-        	
-        </script>
+        
     </head>
     <body ng-app='homeApp' ng-controller='homeList'>
         <header class="header" ng-include="'./component/header.html'"></header>
@@ -28,23 +18,28 @@
             <div class="container" >
                 <aside class="menu_box" ng-include="'./component/left.html'"></aside>
                 <section class="section-box">
-                    <table>
-                    	<thead>
-                    		<tr>
-                    			<th>姓名</th>
-                    			<th>职位</th>
-                    			<th>操作</th>
-                    		</tr>	
-                    	</thead>
-                    	<tbody>
-                    		<tr ng-repeat="data in jobList track by $index">
-                    			<td ng-bind="data.manage_name"></td>
-                    			<td ng-bind="data.role_name"></td>
-                    			<td ng-bind="'更换角色'" ng-click="choose(data.manageID,$index)"></td>
-                    		</tr>	
-                    	</tbody>
-                    </table>		
-                    
+                    <div class="mp_news__box">
+                        <div class="title_bar">系统公告</div>
+                        <ul class="mp_news_list">
+                            <li class="mp_news_item">
+                                <a href="javascript:">
+                                    <strong>贝庆单车开放公测</strong>
+                                    <span>2016-11-20</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <nav class="page">
+                        <ul class="pagination">
+                            <li class="disabled"><a href="#">&laquo;</a></li>
+                            <li class="active"><a href="javascript:">1</a></li>
+                            <li><a href="javascript:">2</a></li>
+                            <li><a href="javascript:">3</a></li>
+                            <li><a href="javascript:">4</a></li>
+                            <li><a href="javascript:">5</a></li>
+                            <li><a href="#">&raquo;</a></li>
+                        </ul>
+                    </nav>
                 </section>
             </div>
         </section>
