@@ -22,6 +22,19 @@ vm.controller('homeList',['$scope','$http',function($scope,$http){
 		
 	});
 	
+	$http({
+		method:'POST',
+		url:'/DibikeManagement/manage/role.do',
+		dataType:'json',
+	}).success(function(result){
+		
+		$scope.jobList=result.data;
+		
+	}).error(function(result){
+		
+	});
+	
+	
 	$scope.loginout=function(){
 		localStorage.removeItem("username");
         localStorage.removeItem("password");
