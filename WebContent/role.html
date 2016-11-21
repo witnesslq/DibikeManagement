@@ -9,26 +9,16 @@
         <script type="text/javascript" src="./js/jquery.min.js"></script>
        	<script type="text/javascript" src="./js/html5shiv.js"></script>
         <script type="text/javascript" src="./js/angular.min.js"></script>
-        <script type="text/javascript" src="./js/home/role.js"></script>
-        <script type="text/javascript">
-        	
-        	function logout(){
-        		
-        		localStorage.removeItem("username");
-        		localStorage.removeItem("password");
-    			window.location.href="./login.html";
-	                
-	        }
-        	
-        </script>
-    </head>
-    <body ng-app='homeApp' ng-controller='homeList'>
+        <script type="text/javascript" src="./js/role/role.js"></script>
+        
+     </head>
+    <body ng-app='roleApp' ng-controller='roleList'>
         <header class="header" ng-include="'./component/header.html'"></header>
         <section class="main">
             <div class="container" >
                 <aside class="menu_box" ng-include="'./component/left.html'"></aside>
                 <section class="section-box">
-                    <table>
+                    <table class="jobTable">
                     	<thead>
                     		<tr>
                     			<th>姓名</th>

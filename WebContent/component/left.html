@@ -5,11 +5,23 @@
         <span class="glyphicon glyphicon-th-large"></span>
         <span>权限</span>
     </dt>
-    <dd class="menu_item" ng-repeat="data in dataList">
-        <a href="javascript:" ng-bind="data.name" ng-click='link()'></a>
+    <dd class="menu_item" ng-class="{true:'selected',false:''}[role]" ng-repeat="data in dataList">
+        <a ng-href="role.html" ng-class="{true:'selected',false:''}[role]" ng-bind="data.name"></a>
     </dd>
 </dl>
 
+<dl class="menu">
+    <dt class="menu_title">
+        <span class="glyphicon glyphicon-th-large"></span>
+        <span>权限</span>
+    </dt>
+    <dd class="menu_item">
+        <a href="javascript:">群发功能</a>
+    </dd>
+    <dd class="menu_item">
+        <a href="javascript:">宣传功能</a>
+    </dd>
+</dl>
 <dl class="menu">
     <dt class="menu_title">
         <span class="glyphicon glyphicon-th-large"></span>
@@ -22,7 +34,6 @@
         <a href="javascript:">宣传功能</a>
     </dd>
 </dl>
-
 <dl class="menu">
     <dt class="menu_title">
         <span class="glyphicon glyphicon-inbox"></span>
@@ -38,7 +49,6 @@
         <a href="javascript:">素材管理</a>
     </dd>
 </dl>
-
 <dl class="menu">
     <dt class="menu_title">
         <span class="glyphicon glyphicon-volume-up"></span>
@@ -48,7 +58,6 @@
         <a href="javascript:">广告主</a>
     </dd>
 </dl>
-
 <dl class="menu">
     <dt class="menu_title">
         <span class="glyphicon glyphicon-th-large"></span>
@@ -67,7 +76,6 @@
         <a href="javascript:">开锁分析</a>
     </dd>
 </dl>
-
 <dl class="menu">
     <dt class="menu_title">
         <span class="glyphicon glyphicon-th-large"></span>
@@ -84,18 +92,5 @@
     </dd>
     <dd class="menu_item">
         <a href="javascript:">违规记录</a>
-    </dd>
-</dl>
-
-<dl class="menu">
-    <dt class="menu_title">
-        <span class="glyphicon glyphicon-th-large"></span>
-        <span>开发</span>
-    </dt>
-    <dd class="menu_item">
-        <a href="javascript:">基本配置</a>
-    </dd>
-    <dd class="menu_item">
-        <a href="javascript:">开发者工具</a>
     </dd>
 </dl>

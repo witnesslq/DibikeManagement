@@ -22,38 +22,10 @@ vm.controller('homeList',['$scope','$http',function($scope,$http){
 		
 	});
 	
-	$http({
-		method:'POST',
-		url:'/DibikeManagement/manage/role.do',
-		dataType:'json',
-	}).success(function(result){
-		$scope.jobList=result.data;
-		
-	}).error(function(result){
-		
-	});
-	
-	
-	$scope.choose=function(arg,index){
-		
-		$http({
-			method:'POST',
-			params:{
-				"manageID":arg
-	        },
-			url:'/DibikeManagement/manage/updateRole.do',
-			dataType:'json',
-			
-		}).success(function(result){
-			
-			$scope.job=result.data;
-			
-			$scope.jobList[index].role_name=($scope.jobList[index].role_name,$scope.job);
-			
-		}).error(function(result){
-			
-		});
-		
+	$scope.loginout=function(){
+		localStorage.removeItem("username");
+        localStorage.removeItem("password");
+    	window.location.href="./login.html";
 	}
 	
 }]);

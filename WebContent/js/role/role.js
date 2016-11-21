@@ -1,6 +1,8 @@
-var vm = angular.module('homeApp',[]);
+var vm = angular.module('roleApp',[]);
 
-vm.controller('homeList',['$scope','$http',function($scope,$http){
+vm.controller('roleList',['$scope','$http',function($scope,$http){
+	
+	$scope.role=true;
 	
 	var username=window.localStorage.getItem("username");
 	var password=window.localStorage.getItem("password");
@@ -18,6 +20,8 @@ vm.controller('homeList',['$scope','$http',function($scope,$http){
 		$scope.username=username;
 		$scope.dataList=result.data;
 		
+		$scope.url=[];
+		
 	}).error(function(result){
 		
 	});
@@ -27,6 +31,7 @@ vm.controller('homeList',['$scope','$http',function($scope,$http){
 		url:'/DibikeManagement/manage/role.do',
 		dataType:'json',
 	}).success(function(result){
+		
 		$scope.jobList=result.data;
 		
 	}).error(function(result){
@@ -48,16 +53,18 @@ vm.controller('homeList',['$scope','$http',function($scope,$http){
 			
 			$scope.job=result.data;
 			
-			//$scope.jobList.splice(0,1,$scope.job);
-			
-			console.log($scope.jobList[index]);
-			
-			$scope.jobList[index].splice(0,1,$scope.job);
+			$scope.jobList[index].role_name=($scope.jobList[index].role_name,$scope.job);
 			
 		}).error(function(result){
 			
 		});
 		
+	}
+	
+	$scope.loginout=function(){
+		localStorage.removeItem("username");
+        localStorage.removeItem("password");
+    	window.location.href="./login.html";
 	}
 	
 }]);
