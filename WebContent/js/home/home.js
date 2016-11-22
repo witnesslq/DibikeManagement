@@ -15,6 +15,7 @@ vm.controller('homeList',['$scope','$http',function($scope,$http){
 		dataType:'json',
 		
 	}).success(function(result){
+		
 		$scope.username=username;
 		$scope.dataList=result.data;
 		
@@ -29,6 +30,8 @@ vm.controller('homeList',['$scope','$http',function($scope,$http){
 	}).success(function(result){
 		
 		$scope.jobList=result.data;
+		
+		console.log($scope.jobList);
 		
 	}).error(function(result){
 		
