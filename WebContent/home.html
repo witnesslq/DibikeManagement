@@ -9,6 +9,7 @@
         <script type="text/javascript" src="./js/jquery.min.js"></script>
        	<script type="text/javascript" src="./js/html5shiv.js"></script>
         <script type="text/javascript" src="./js/angular.min.js"></script>
+        <script type="text/javascript" src="./js/echarts.min.js"></script>
         <script type="text/javascript" src="./js/home/home.js"></script>
     </head>
     <body ng-app='homeApp' ng-controller='homeList'>
@@ -27,6 +28,7 @@
                                 </a>
                             </li>
                         </ul>
+                        <div id="main" style="height:400px;"></div>
                     </div>
                     <nav class="page">
                         <ul class="pagination">
@@ -43,5 +45,32 @@
             </div>
         </section>
         <footer class="footer" ng-include="'./component/footer.html'"></footer>
+        <script type="text/javascript">
+        
+        var myChart = echarts.init(document.getElementById('main'));
+
+        
+        var option = {
+            title: {
+                text: '贝庆单车'
+            },
+            tooltip: {},
+            legend: {
+                data:['贝庆单车销量']
+            },
+            xAxis: {
+                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子","衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+            },
+            yAxis: {},
+            series: [{
+                name: '贝庆单车销量',
+                type: 'bar',
+                data: [5,20,36,10,10,20,5,20,36,10,10,20]
+            }]
+        };
+
+        
+        myChart.setOption(option);
+    </script>
     </body>
 </html>
