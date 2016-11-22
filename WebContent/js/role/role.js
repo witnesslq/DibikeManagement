@@ -20,8 +20,6 @@ vm.controller('roleList',['$scope','$http',function($scope,$http){
 		$scope.username=username;
 		$scope.dataList=result.data;
 		
-		$scope.url=[];
-		
 	}).error(function(result){
 		
 	});
@@ -51,9 +49,7 @@ vm.controller('roleList',['$scope','$http',function($scope,$http){
 			
 		}).success(function(result){
 			
-			$scope.job=result.data;
-			
-			$scope.jobList[index].role_name=($scope.jobList[index].role_name,$scope.job);
+			$scope.jobList[index].role_name=result.data;
 			
 		}).error(function(result){
 			
