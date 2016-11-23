@@ -100,6 +100,7 @@ public String ListFormat(String code,String message,String name,JsonArray list){
 	return jsonObjArr.toString();
 }
 public static void main(String[] args) {
+	@SuppressWarnings("unused")
 	JsonFormat jf=new JsonFormat();
 //	String a =jf.normFormat("11", "上大号",).toString();
 //	System.out.println(a);

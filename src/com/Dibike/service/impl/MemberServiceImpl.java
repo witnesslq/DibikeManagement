@@ -19,16 +19,17 @@ import com.Dibike.service.MemberService;
 public class MemberServiceImpl implements MemberService{
 	@Resource
 	private BaseDao<Member> baseDao;
+	@Resource
+	private BaseDao<String> baseDao1;
 
 	@Override
 	@Transactional
 	public Member findByPhone(String phone) {
 		// TODO Auto-generated method stub
-		
 		List<Member> lists=baseDao.find("from Member where phone ='"+phone+"'");
 		if(lists.size()==0){
 			return null;
-		}else{
+		}else{ 
 			return lists.get(0);
 		}
 		
@@ -39,5 +40,26 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		baseDao.save(member);
 	}
+
+	@Override
+	public List<String> countMemberByWeek() {
+		List<String> list=baseDao1.find("select  count(phone) "+ 
+							"from Member  "+
+							"group by year(createDate) ,   "+
+							"month(createDate) ,   "+
+							"WEEK(createDate)  ");
+		return list;
+	}
+
+	@Override
+	public List<String> countMemberByMonth() {
+		List<String> list=baseDao1.find("select  count(phone) "+ 
+				"from Member  "+
+				"group by year(createDate) ,   "+
+				"month(createDate) ");
+		return list;
+	}
+	
+	
 
 }

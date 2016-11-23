@@ -8,6 +8,7 @@ import java.io.Serializable;
  * {"status":"0","msg":"成功","data":xxx}
  */
 public class Result implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private String status;//0表示成功,其他表示失败
 	private String msg;//消息
 	private Object data;//返回的数据

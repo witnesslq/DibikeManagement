@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.Dibike.common.BaseDao;
 import com.Dibike.entity.Sms;
 import com.Dibike.service.SmsService;

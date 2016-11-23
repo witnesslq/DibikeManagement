@@ -5,13 +5,17 @@ import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
 
-import com.Dibike.entity.Manage_role;
 
 
 public interface BaseDao<T> {
 
-	
-	public Serializable save(T o);
+	/**
+	 * ����һ������
+	 * 
+	 * @param o
+	 * @return
+	 */
+	public void save(T o);
 
 	/**
 	 * ɾ��һ������

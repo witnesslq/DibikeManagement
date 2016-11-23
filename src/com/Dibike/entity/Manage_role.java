@@ -14,6 +14,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "manage_role")
 public class Manage_role {
+
 	/**
 	 * ID
 	 */
@@ -50,8 +51,6 @@ public class Manage_role {
 	 */
 	@Column(name = "remark")
 	private String remark;
-
-
 
 	/**
 	 * 备用字段
