@@ -115,10 +115,12 @@ public class ManageController {
 		result.setData(manage);
 		return result;
 	}
+	
+	
 
 }
 
-
+ 
 
 
 

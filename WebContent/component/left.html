@@ -9,20 +9,27 @@
         <a ng-href="./role.html" ng-class="{true:'selected',false:''}[role]" ng-bind="data.name"></a>
     </dd>
 </dl>
-
+<dl class="menu">
+    <dt class="menu_title">
+        <span class="glyphicon glyphicon-th-large"></span>
+        <span>用户显示</span>
+    </dt>
+    <dd class="menu_item" ng-class="{true:'selected',false:''}[userShow]">
+        <a href="./userShow.html" ng-class="{true:'selected',false:''}[userShow]">用户显示</a>
+    </dd>
+</dl>
 <dl class="menu">
     <dt class="menu_title">
         <span class="glyphicon glyphicon-th-large"></span>
         <span>个人信息管理</span>
     </dt>
-    <dd class="menu_item" ng-class="{true:'selected',false:''}[user]">
-        <a href="./user.html" ng-class="{true:'selected',false:''}[user]">修改个人信息</a>
+    <dd class="menu_item" ng-class="{true:'selected',false:''}[userInfo]">
+        <a href="./userInfo.html" ng-class="{true:'selected',false:''}[userInfo]">修改个人信息</a>
     </dd>
     <dd class="menu_item" ng-class="{true:'selected',false:''}[password]">
         <a href="./password.html" ng-class="{true:'selected',false:''}[password]">修改密码</a>
     </dd>
 </dl>
-
 <dl class="menu">
     <dt class="menu_title">
         <span class="glyphicon glyphicon-th-large"></span>
@@ -38,7 +45,6 @@
         <a href="javascript:">维修人员设定</a>
     </dd>
 </dl>
-
 <dl class="menu">
     <dt class="menu_title">
         <span class="glyphicon glyphicon-th-large"></span>
@@ -51,7 +57,6 @@
         <a href="javascript:">消息管理</a>
     </dd>
 </dl>
-
 <dl class="menu">
     <dt class="menu_title">
         <span class="glyphicon glyphicon-inbox"></span>
@@ -76,7 +81,6 @@
         <a href="javascript:">广告主</a>
     </dd>
 </dl>
-
 <dl class="menu">
     <dt class="menu_title">
         <span class="glyphicon glyphicon-th-large"></span>
@@ -95,7 +99,6 @@
         <a href="javascript:">开锁分析</a>
     </dd>
 </dl>
-
 <dl class="menu">
     <dt class="menu_title">
         <span class="glyphicon glyphicon-th-large"></span>
