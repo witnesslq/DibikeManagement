@@ -1,2 +1,5 @@
 /com/
 /config/
+/src/
+/ehcache.xml
+/log4j.properties
