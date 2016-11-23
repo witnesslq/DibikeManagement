@@ -1,9 +1,7 @@
 var vm = angular.module('userSApp',[]);
 
 vm.controller('userSList',['$scope','$http',function($scope,$http){
-	
 	$scope.userShow=true;
-	
 	var username=window.localStorage.getItem("username");
 	var password=window.localStorage.getItem("password");
 	
@@ -20,7 +18,6 @@ vm.controller('userSList',['$scope','$http',function($scope,$http){
 			dataType:'json',
 			
 		}).success(function(result){
-			
 			$scope.username=username;
 			$scope.dataList=result.data;
 			
@@ -38,9 +35,9 @@ vm.controller('userSList',['$scope','$http',function($scope,$http){
 	}).success(function(result){
 	
 		option = {
-			    title: {
-			        text: '本周注册量'
-			    },
+			  title: {
+			      text: '本周注册量'
+			  },
 			    tooltip: {
 			        trigger: 'axis'
 			    },
@@ -72,7 +69,13 @@ vm.controller('userSList',['$scope','$http',function($scope,$http){
 			            type:'line',
 			            stack: '总量',
 			            //data:result.data[0]
-			        	data:[1,2,3,4,5,6,7]
+			        	data:[1,2,3,4,5,6,7],
+			        	itemStyle : {
+							normal : {
+							color:'#eb6588',
+								
+							}
+						},
 			        },
 			    ]
 			};
