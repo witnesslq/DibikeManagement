@@ -20,7 +20,7 @@ vm.controller('loginList',['$scope','$http',function($scope,$http){
             	window.localStorage.setItem("username",username);
             	window.localStorage.setItem("password",password);
             	
-          		window.location.href='/DibikeManagement/home.html';
+          		window.location.href='/DibikeManagement/index.html';
             	
             }else{
             	alert('傻B,用户名或密码错误');
