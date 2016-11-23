@@ -43,7 +43,6 @@ vm.controller('roleList',['$scope','$http',function($scope,$http){
 	
 	
 	$scope.choose=function(arg,index){
-		
 		$http({
 			method:'POST',
 			params:{
@@ -53,7 +52,6 @@ vm.controller('roleList',['$scope','$http',function($scope,$http){
 			dataType:'json',
 			
 		}).success(function(result){
-			
 			$scope.jobList[index].role_name=result.data;
 			
 		}).error(function(result){
