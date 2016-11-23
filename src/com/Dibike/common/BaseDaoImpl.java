@@ -20,10 +20,27 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 
+
 @Repository("baseDao")
 @SuppressWarnings("all")
 public class BaseDaoImpl<T> implements BaseDao<T> {
 
+	// private Class<T> clazz;
+	//
+	// /**
+	// * ͨ���췽��ָ��DAO�ľ���ʵ����
+	// */
+	// public BaseDaoImpl() {
+	// ParameterizedType type = (ParameterizedType)
+	// this.getClass().getGenericSuperclass();
+	// clazz = (Class<T>) type.getActualTypeArguments()[0];
+	// System.out.println("DAO����ʵʵ�����ǣ�" + this.clazz.getName());
+	// }
+
+	/**
+	 * ��DAO��ע��SessionFactory
+	 */
+	
 	
 	
 	@Resource
@@ -42,23 +59,33 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		return sessionFactory.getCurrentSession();
 	}
 
-	public Serializable save(T o) {
-		return this.getCurrentSession().save(o);
+	//
+	public void save(T o) {
+		Session session = this.getCurrentSession();
+		Transaction tx = session.beginTransaction();
+		session.save(o);
+		tx.commit();
 	}
 
 	public void delete(T o) {
-		this.getCurrentSession().delete(o);
+		Session session = this.getCurrentSession();
+		Transaction tx = session.beginTransaction();
+		session.delete(o);
+		tx.commit();
 	}
 
 	public void update(T o) {
-		 Session session=this.getCurrentSession();
-		 Transaction tx=session.beginTransaction();
-		 session.update(o);
-		 tx.commit();
+		Session session = this.getCurrentSession();
+		Transaction tx = session.beginTransaction();
+		session.update(o);
+		tx.commit();
 	}
 
 	public void saveOrUpdate(T o) {
-		this.getCurrentSession().saveOrUpdate(o);
+		Session session = this.getCurrentSession();
+		Transaction tx = session.beginTransaction();
+		session.saveOrUpdate(o);
+		tx.commit();
 	}
 
 	public List<T> find(String hql) {

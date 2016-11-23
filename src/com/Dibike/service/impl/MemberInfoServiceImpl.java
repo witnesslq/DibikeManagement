@@ -7,10 +7,8 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.Dibike.common.BaseDao;
-import com.Dibike.entity.Member;
 import com.Dibike.entity.MemberInfo;
 import com.Dibike.service.MemberInfoService;
-import com.Dibike.service.MemberService;
 
 /**
  * @author wjf

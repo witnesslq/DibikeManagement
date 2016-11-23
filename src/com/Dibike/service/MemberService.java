@@ -1,5 +1,6 @@
 package com.Dibike.service;
 
+
 import java.util.List;
 
 import com.Dibike.entity.Member;
@@ -20,4 +21,12 @@ public interface MemberService {
 	 * @param member
 	 */
 	public void saveMember(Member member);
+	/**
+	 * 统计每周的用户注册量
+	 */
+	public List<String> countMemberByWeek();
+	/**
+	 * 统计每月的用户注册量
+	 */
+	public List<String> countMemberByMonth();
 }

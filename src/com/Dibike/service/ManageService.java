@@ -1,10 +1,9 @@
 package com.Dibike.service;
 
 import java.util.List;
+import java.util.Map;
 
-import com.Dibike.entity.ActionCloumn;
 import com.Dibike.entity.Manage;
-import com.Dibike.entity.Manage_role;
 
 public interface ManageService {
 	/**
@@ -13,17 +12,18 @@ public interface ManageService {
 	 * @return
 	 */
 	public Manage findByName(String name);
-	
 	/**
-	 * 根据用户id manageID查询权限栏信息
-	 * @param manageID
+	 * 查询除了超级管理员之外的所有用户的用户名和角色名
+	 * @param 
 	 * @return
 	 */
-	public List<ActionCloumn> findByManageID(String manageID);
-	public List<?> selectAll();
+	public List<Map<String, String>> selectAll();
+	/**
+	 * 修改个人信息
+	 * @param 
+	 * @return
+	 */
+	public void updateManage(Manage manage);
 	
-	public void updateManage_role(Manage_role manage_role);
-
-	public Manage_role findByManage_roleID(String manageID);
 
 }
