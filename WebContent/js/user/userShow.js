@@ -31,7 +31,9 @@ vm.controller('userSList',['$scope','$http',function($scope,$http){
 		url:'/DibikeManagement/member/countMember.do',
 		dataType:'json',
 	}).success(function(result){
-		console.log(result);
+		
+		console.log(result.data[0]);
+		console.log(result.data[1]);
 		
 	}).error(function(result){
 		
