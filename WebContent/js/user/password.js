@@ -35,13 +35,15 @@ vm.controller('passWList',['$scope','$http',function($scope,$http){
 		
 		$scope.submitPass=function(){
 			$scope.isDisabled = true;
-			var pass1=$('.pass1').val();
-			var pass2=$('.pass2').val();
+			var pass1=angular.element('.pass1').val();
+			var pass2=angular.element('.pass2').val();
 			
 			if(pass1!==pass2){
 				alert('傻B,2次输入的密码不一致,请重新输入');
 			}else if(pass1===password){
 				alert('傻B,旧密码不能和新密码一致,请重新输入');
+			}else if(pass1.length!=6&&pass2.length!=6){
+				alert('傻B,密码的长度必须是6位,请重新输入');
 			}else{
 				$http({
 					method:'POST',
@@ -58,7 +60,6 @@ vm.controller('passWList',['$scope','$http',function($scope,$http){
 			        localStorage.removeItem("password");
 			    	window.location.href="./login.html";
 					
-					
 				}).error(function(result){
 					
 				});
@@ -66,8 +67,8 @@ vm.controller('passWList',['$scope','$http',function($scope,$http){
 		}
 		
 		$scope.cancel=function(){
-			$('.pass1').val('');
-			$('.pass2').val('');
+			angular.element('.pass1').val('');
+			angular.element('.pass2').val('');
 			angular.element('.change').hide();
 			angular.element('.meta_content').addClass('hide');
 		}
