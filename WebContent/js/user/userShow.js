@@ -26,7 +26,8 @@ vm.controller('userSList',['$scope','$http',function($scope,$http){
 		});
 	}
 	
-	var myChart = echarts.init(document.getElementById('main'));
+	var myChart1 = echarts.init(document.getElementById('week'));
+	var myChart2 = echarts.init(document.getElementById('month'));
 	
 	$http({
 		method:'POST',
@@ -34,7 +35,7 @@ vm.controller('userSList',['$scope','$http',function($scope,$http){
 		dataType:'json',
 	}).success(function(result){
 	
-		option = {
+		option1 = {
 			  title: {
 			      text: '本周注册量'
 			  },
@@ -42,7 +43,7 @@ vm.controller('userSList',['$scope','$http',function($scope,$http){
 			        trigger: 'axis'
 			    },
 			    legend: {
-			        data:['用户注册']
+			        data:['用户注册量']
 			    },
 			    grid: {
 			        left: '3%',
@@ -69,7 +70,7 @@ vm.controller('userSList',['$scope','$http',function($scope,$http){
 			            type:'line',
 			            stack: '总量',
 			            //data:result.data[0]
-			        	data:[1,2,3,4,5,6,7],
+			        	data:[3,5,90,102,68,98,150],
 			        	itemStyle : {
 							normal : {
 							color:'#eb6588',
@@ -77,10 +78,59 @@ vm.controller('userSList',['$scope','$http',function($scope,$http){
 							}
 						},
 			        },
-			    ]
+			    ],
+			    backgroundColor:'#109ba3',
 			};
-		 myChart.setOption(option);
+		 myChart1.setOption(option1);
 		
+		 option2 = {
+				  title: {
+				      text: '本月注册量'
+				  },
+				    tooltip: {
+				        trigger: 'axis'
+				    },
+				    legend: {
+				        data:['用户注册量']
+				    },
+				    grid: {
+				        left: '3%',
+				        right: '4%',
+				        bottom: '3%',
+				        containLabel: true
+				    },
+				    toolbox: {
+				        feature: {
+				            saveAsImage: {}
+				        }
+				    },
+				    xAxis: {
+				        type: 'category',
+				        boundaryGap: false,
+				        data: ['第一周','第二周','第三周','第四周']
+				    },
+				    yAxis: {
+				        type: 'value'
+				    },
+				    series: [
+				        {
+				            name:'用户注册',
+				            type:'line',
+				            stack: '总量',
+				            //data:result.data[1]
+				        	data:[3,5,90,102],
+				        	itemStyle : {
+								normal : {
+								color:'#eb6588',
+									
+								}
+							},
+				        },
+				    ],
+				    backgroundColor:'#109ba3',
+				};
+			 myChart2.setOption(option2);
+		 
 	}).error(function(result){
 		
 	});
