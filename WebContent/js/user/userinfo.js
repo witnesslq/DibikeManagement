@@ -51,7 +51,7 @@ vm.controller('userList',['$scope','$http',function($scope,$http){
 					dataType:'json',
 					
 				}).success(function(result){
-					alert('修改成功,重新登录');
+					alert('用户名修改成功,重新登录');
 					localStorage.removeItem("username");
 			        localStorage.removeItem("password");
 			    	window.location.href="./login.html";
