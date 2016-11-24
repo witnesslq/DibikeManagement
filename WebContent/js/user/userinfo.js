@@ -38,7 +38,6 @@ vm.controller('userList',['$scope','$http',function($scope,$http){
 			$scope.isDisabled = true;
 			var newname=$('.username').val();
 			
-			
 			if(newname==username){
 				alert('傻B，修改后的用户名不能和原来的用户名一致');
 			}else{
@@ -69,7 +68,6 @@ vm.controller('userList',['$scope','$http',function($scope,$http){
 			$('.username').val(username);
 			angular.element('.change').hide();
 		}
-		
 	}
 	
 	
