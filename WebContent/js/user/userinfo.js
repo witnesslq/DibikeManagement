@@ -36,32 +36,37 @@ vm.controller('userList',['$scope','$http',function($scope,$http){
 		
 		$scope.submitUser=function(){
 			$scope.isDisabled = true;
-			var newname=$('.user').val();
+			var newname=$('.username').val();
 			
-			$http({
-				method:'POST',
-				params:{
-					"oldName":username,
-		            "newName":newname
-				},
-				url:'/DibikeManagement/manage/updateManage.do',
-				dataType:'json',
-				
-			}).success(function(result){
-				alert('修改成功,重新登录');
-				localStorage.removeItem("username");
-		        localStorage.removeItem("password");
-		    	window.location.href="./login.html";
-				
-				
-			}).error(function(result){
-				
-			});
+			
+			if(newname==username){
+				alert('傻B，修改后的用户名不能和原来的用户名一致');
+			}else{
+				$http({
+					method:'POST',
+					params:{
+						"oldName":username,
+			            "newName":newname
+					},
+					url:'/DibikeManagement/manage/updateManage.do',
+					dataType:'json',
+					
+				}).success(function(result){
+					alert('修改成功,重新登录');
+					localStorage.removeItem("username");
+			        localStorage.removeItem("password");
+			    	window.location.href="./login.html";
+					
+					
+				}).error(function(result){
+					
+				});
+			}
 			
 		}
 		$scope.cancel=function(){
 			$scope.isDisabled = true;
-			$scope.username=username;
+			$('.username').val(username);
 			angular.element('.change').hide();
 		}
 		
