@@ -40,7 +40,6 @@ vm.controller('userList',['$scope','$http',function($scope,$http){
 				alert('傻B，修改后的用户名不能和原来的用户名一致');
 				
 			}else{
-				$scope.isDisabled = true;
 				$http({
 					method:'POST',
 					params:{
