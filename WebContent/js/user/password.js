@@ -38,7 +38,11 @@ vm.controller('passWList',['$scope','$http',function($scope,$http){
 			var pass1=$('.pass1').val();
 			var pass2=$('.pass2').val();
 			
-			if(pass1===pass2){
+			if(pass1!==pass2){
+				alert('傻B,2次输入的密码不一致,请重新输入');
+			}else if(pass1===password){
+				alert('傻B,旧密码不能和新密码一致,请重新输入');
+			}else{
 				$http({
 					method:'POST',
 					params:{
@@ -49,7 +53,7 @@ vm.controller('passWList',['$scope','$http',function($scope,$http){
 					dataType:'json',
 					
 				}).success(function(result){
-					alert('修改成功,重新登录');
+					alert('密码修改成功,重新登录');
 					localStorage.removeItem("username");
 			        localStorage.removeItem("password");
 			    	window.location.href="./login.html";
@@ -58,11 +62,7 @@ vm.controller('passWList',['$scope','$http',function($scope,$http){
 				}).error(function(result){
 					
 				});
-			}else{
-				alert('傻B,2次输入的密码不一致,请重新输入');
-				
 			}
-			
 		}
 		
 		$scope.cancel=function(){
