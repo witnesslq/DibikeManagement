@@ -9,6 +9,7 @@ vm.controller('passWList',['$scope','$http',function($scope,$http){
 	
 	if(username==null||password==null){
 		window.location.href='/DibikeManagement/login.html';
+		$scope.username=username;
 	}else{
 		$http({
 			method:'POST',
@@ -21,7 +22,7 @@ vm.controller('passWList',['$scope','$http',function($scope,$http){
 			
 		}).success(function(result){
 			
-			$scope.username=username;
+			
 			$scope.dataList=result.data;
 			
 		}).error(function(result){
@@ -39,11 +40,11 @@ vm.controller('passWList',['$scope','$http',function($scope,$http){
 			var pass2=angular.element('.pass2').val();
 			
 			if(pass1!==pass2){
-				alert('傻B,2次输入的密码不一致,请重新输入');
+				alert('2次输入的密码不一致,请重新输入');
 			}else if(pass1===password){
-				alert('傻B,旧密码不能和新密码一致,请重新输入');
+				alert('旧密码不能和新密码一致,请重新输入');
 			}else if(pass1.length!=6&&pass2.length!=6){
-				alert('傻B,密码的长度必须是6位,请重新输入');
+				alert('密码的长度必须是6位,请重新输入');
 			}else{
 				$http({
 					method:'POST',

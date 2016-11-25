@@ -3,7 +3,7 @@ var vm = angular.module('loginApp',[]);
 vm.controller('loginList',['$scope','$http',function($scope,$http){
 	
 	$scope.login= function (e) {      
-        var keycode = window.event ? e.keyCode : e.which;
+        var keycode = window.event?e.keyCode:e.which;
         if (keycode == 13){  
             $scope.submit();  
         }  
@@ -29,7 +29,7 @@ vm.controller('loginList',['$scope','$http',function($scope,$http){
           		window.location.href='/DibikeManagement/index.html';
             	
             }else{
-            	alert('傻B,用户名或密码错误');
+            	alert('用户名或密码错误');
             	return false;
             }
     		
