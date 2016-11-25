@@ -87,7 +87,7 @@ vm.controller('userSList',['$scope','$http',function($scope,$http){
 		
 		 option2 = {
 				 title: {
-				      text: '本周注册量',
+				      text: '本月注册量',
 				      textBaseline: 'top',
 				      left: 'center',
 				      top: '20px',
