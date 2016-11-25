@@ -37,7 +37,14 @@ vm.controller('userSList',['$scope','$http',function($scope,$http){
 	
 		option1 = {
 			  title: {
-			      text: '本周注册量'
+			      text: '本周注册量',
+			      textBaseline: 'top',
+			      left: 'center',
+			      top: '20px',
+			      textStyle:{
+			    	  color: '#fff',
+			    	  fontSize: 18,
+			      }
 			  },
 			    tooltip: {
 			        trigger: 'axis'
@@ -50,11 +57,6 @@ vm.controller('userSList',['$scope','$http',function($scope,$http){
 			        right: '4%',
 			        bottom: '3%',
 			        containLabel: true
-			    },
-			    toolbox: {
-			        feature: {
-			            saveAsImage: {}
-			        }
 			    },
 			    xAxis: {
 			        type: 'category',
@@ -84,10 +86,17 @@ vm.controller('userSList',['$scope','$http',function($scope,$http){
 		 myChart1.setOption(option1);
 		
 		 option2 = {
-				  title: {
-				      text: '本月注册量'
+				 title: {
+				      text: '本周注册量',
+				      textBaseline: 'top',
+				      left: 'center',
+				      top: '20px',
+				      textStyle:{
+				    	  color: '#fff',
+				    	  fontSize: 18,
+				      }
 				  },
-				    tooltip: {
+				   tooltip: {
 				        trigger: 'axis'
 				    },
 				    legend: {
@@ -98,11 +107,6 @@ vm.controller('userSList',['$scope','$http',function($scope,$http){
 				        right: '4%',
 				        bottom: '3%',
 				        containLabel: true
-				    },
-				    toolbox: {
-				        feature: {
-				            saveAsImage: {}
-				        }
 				    },
 				    xAxis: {
 				        type: 'category',
