@@ -4,14 +4,14 @@ vm.controller('loginList',['$scope','$http',function($scope,$http){
 	
 	$scope.login= function (e) {      
         var keycode = window.event ? e.keyCode : e.which;
-        if (keycode == 13) {  
+        if (keycode == 13){  
             $scope.submit();  
         }  
     }  
 	
 	$scope.submit=function(){
-		var username=$('#username').val();
-        var password=$('#password').val();
+		var username=$('.username').val();
+        var password=$('.password').val();
         
         $http({
     		method:'POST',
