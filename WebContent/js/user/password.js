@@ -7,28 +7,27 @@ vm.controller('passWList',['$scope','$http',function($scope,$http){
 	var username=window.localStorage.getItem("username");
 	var password=window.localStorage.getItem("password");
 	
-	if(username==null||password==null){
-		window.location.href='/DibikeManagement/login.html';
-		$scope.username=username;
-	}else{
-		$http({
-			method:'POST',
-			params:{
-				"username":username,
-	            "password":password
-			},
-			url:'/DibikeManagement/manage/login.do',
-			dataType:'json',
+	$http({
+		method:'POST',
+		params:{
+			"username":username,
+	        "password":password
+		},
+		url:'/DibikeManagement/manage/login.do',
+		dataType:'json',
+	}).success(function(result){
+		if(result.status==0){
+			$scope.username=username;
+			$scope.dataList=result.data || {};
+		}else{
+			localStorage.removeItem("username");
+		    localStorage.removeItem("password");
+		    window.location.href="./login.html";
+		}
 			
-		}).success(function(result){
+	}).error(function(result){
 			
-			
-			$scope.dataList=result.data;
-			
-		}).error(function(result){
-			
-		});
-	}
+	});
 	
 	$scope.changePass=function(){
 		angular.element('.change').show();
