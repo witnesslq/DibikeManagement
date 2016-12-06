@@ -26,7 +26,7 @@ public class MemberServiceImpl implements MemberService{
 	@Transactional
 	public Member findByPhone(String phone) {
 		// TODO Auto-generated method stub
-		List<Member> lists=baseDao.find("from Member where phone ='"+phone+"'");
+		List<Member> lists = baseDao.find("from Member where phone ='"+phone+"'");
 		if(lists.size()==0){
 			return null;
 		}else{ 
@@ -43,7 +43,7 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public List<String> countMemberByWeek() {
-		List<String> list=baseDao1.find("select  count(phone) "+ 
+		List<String> list = baseDao1.find("select  count(phone) "+ 
 							"from Member  "+
 							"group by year(createDate) ,   "+
 							"month(createDate) ,   "+
@@ -53,11 +53,21 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public List<String> countMemberByMonth() {
-		List<String> list=baseDao1.find("select  count(phone) "+ 
+		List<String> list = baseDao1.find("select  count(phone) "+ 
 				"from Member  "+
 				"group by year(createDate) ,   "+
 				"month(createDate) ");
 		return list;
+	}
+
+	@Override
+	public Member findByMemberID(String memberID) {
+		List<Member> lists = baseDao.find("from Member where memberID ='"+memberID+"'");
+		if(lists.size()==0){
+			return null;
+		}else{ 
+			return lists.get(0);
+		}
 	}
 	
 	
