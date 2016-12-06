@@ -103,12 +103,15 @@ public class ManageController {
 	
 	@RequestMapping("/updateManagePassword")
 	@ResponseBody
-	public Result updateManagePassword(String name,String password){
+	public Result updateManagePassword(String name,String oldPassword,String newPassword){
 		logger.info("-------修改密码------");
 		Result result = new Result();
 		Manage manage = manageService.findByName(name);
-		String pwd = new SHA1().getDigestOfString(password.getBytes());
-		manage.setPassword(pwd);
+		if(!new SHA1().getDigestOfString(oldPassword.getBytes()).equals(manage.getPassword())){
+			result.setMsg("修改密码失败");
+			return result;
+		}
+		manage.setPassword(new SHA1().getDigestOfString(newPassword.getBytes()));
 		manageService.updateManage(manage);
 		result.setStatus("0");
 		result.setMsg("修改密码成功");

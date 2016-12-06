@@ -1,0 +1,82 @@
+@import './variables.less';
+@import './mixin.less';
+@import './public.less';
+
+.section-box{
+  width: 970px;
+  float: right;
+  overflow: hidden;
+  background: @background;
+  padding: 20px;
+
+  .mp_news__box{
+    overflow: hidden;
+    border: 1px solid #e7e7eb;
+
+    .title_bar{
+      font-weight: 400;
+      line-height: 40px;
+      background: #f4f5f9;
+      padding: 0 20px;
+     .mp_news-text;
+
+    }
+	
+	.verifyList{
+		margin: 20px auto 0;
+		overflow: hidden;
+		
+		>li{
+			width: 200px;
+			height:40px;
+			line-height:40px;
+			float:left;
+			text-align: center;
+			cursor: pointer;
+			
+			&.selected{
+				background: #109ba3;
+				color: #fff;
+			}
+		}
+	}
+      
+    .verifybox{
+		margin: 20px auto 20px;
+		overflow: hidden;
+		display:none;
+		
+		.bike_bar{
+			border-top: 1px solid #000;
+    		border-left: 1px solid #000;
+    		
+    		tr{
+				height: 100px;
+				line-height: 100px;
+				border-bottom: 1px solid #000;
+				
+				th{
+					width: 250px;
+				    text-align: center;
+				    color: #fff;
+				    background: #109ba3;
+				    border-right: 1px solid #000;
+					
+				}
+				
+				td{
+					width: 250px;
+				    text-align: center;
+				    color: #222;
+				    background: #eb6588;
+				    border-right: 1px solid #000;
+				}
+			
+			}
+		}		
+	}
+
+  }
+
+  
+}

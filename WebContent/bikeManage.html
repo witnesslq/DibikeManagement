@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="./css/bike.css">
+        <script type="text/javascript" src="./js/jquery.min.js"></script>
+        <script type="text/javascript" src="./js/html5shiv.js"></script>
+        <script type="text/javascript" src="./js/size.js"></script>
+        <script type="text/javascript" src="./js/angular.min.js"></script>
+        <script type="text/javascript" src="./js/bike/bikeManage.js"></script>
+	</head>
+    <body ng-app='bikeApp' ng-controller='bikeList'>
+        <header class="header" ng-include="'./component/header.html'"></header>
+        <section class="main">
+            <div class="container">
+                <aside class="menu_box" ng-include="'./component/left.html'"></aside>
+                <section class="section-box">
+                    <div class="mp_news__box">
+                        <div class="title_bar">车辆管理</div>
+                        <ul class="verifyList">
+							<li class="selected">全部</li>
+							<li>未审核</li>
+							<li>已审核</li>
+							<li>审核驳回</li>
+						</ul>
+						<div class="verifybox">
+							<table class="bike_bar">
+								<thead>
+									<tr>
+										<th ng-repeat="list in bikes" ng-bind="list"></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="data in NoCheck">
+										<td ng-bind="data.bikeNO"></td>
+										<td>
+											<img ng-src="./{{data.photo}}" />
+										</td>
+										<td ng-bind="data.question"></td>
+										<td ng-bind="data.description"></td>
+										<td ng-bind="data.status"></td>
+									</tr>
+									<tr ng-repeat="data in queryPass">
+										<td ng-bind="data.bikeNO"></td>
+										<td>
+											<img ng-src="./{{data.photo}}" />
+										</td>
+										<td ng-bind="data.question"></td>
+										<td ng-bind="data.description"></td>
+										<td ng-bind="data.status"></td>
+									</tr>
+									<tr ng-repeat="data in queryNoPass">
+										<td ng-bind="data.bikeNO"></td>
+										<td>
+											<img ng-src="./{{data.photo}}" />
+										</td>
+										<td ng-bind="data.question"></td>
+										<td ng-bind="data.description"></td>
+										<td ng-bind="data.status"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="verifybox">
+							<table class="bike_bar">
+								<thead>
+									<tr>
+										<th ng-repeat="list in bikes" ng-bind="list"></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="data in NoCheck">
+										<td ng-bind="data.bikeNO"></td>
+										<td>
+											<img ng-src="./{{data.photo}}" />
+										</td>
+										<td ng-bind="data.question"></td>
+										<td ng-bind="data.description"></td>
+										<td ng-bind="data.status"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="verifybox">
+							<table class="bike_bar">
+								<thead>
+									<tr>
+										<th ng-repeat="list in bikes" ng-bind="list"></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="data in queryPass">
+										<td ng-bind="data.bikeNO"></td>
+										<td>
+											<img ng-src="./{{data.photo}}" />
+										</td>
+										<td ng-bind="data.question"></td>
+										<td ng-bind="data.description"></td>
+										<td ng-bind="data.status"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="verifybox">
+							<table class="bike_bar">
+								<thead>
+									<tr>
+										<th ng-repeat="list in bikes" ng-bind="list"></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="data in queryNoPass">
+										<td ng-bind="data.bikeNO"></td>
+										<td>
+											<img ng-src={{data.photo}} />
+										</td>
+										<td ng-bind="data.question"></td>
+										<td ng-bind="data.description"></td>
+										<td ng-bind="data.status"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+                    </div>
+                </section>
+            </div>
+        </section>
+        <footer class="footer" ng-include="'./component/footer.html'"></footer>
+    </body>
+</html>

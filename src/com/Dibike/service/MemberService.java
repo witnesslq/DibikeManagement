@@ -29,4 +29,11 @@ public interface MemberService {
 	 * 统计每月的用户注册量
 	 */
 	public List<String> countMemberByMonth();
+	
+	/**
+	 * 根据memberID来查找
+	 * @param memberID
+	 * @return
+	 */
+	public Member findByMemberID(String memberID);
 }

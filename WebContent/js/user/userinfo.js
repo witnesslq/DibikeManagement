@@ -1,4 +1,4 @@
-var vm = angular.module('userApp',[]);
+var vm = angular.module('userInfo',[]);
 
 vm.controller('userList',['$scope','$http',function($scope,$http){
 	

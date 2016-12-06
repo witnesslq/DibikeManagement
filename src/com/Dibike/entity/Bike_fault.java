@@ -22,6 +22,12 @@ public class Bike_fault {
 	private int id;
 
 	/**
+	 * 会员编号
+	 */
+	@Column(name = "memberID")
+	private String memberID;
+
+	/**
 	 * 自行车编号
 	 */
 	@Column(name = "bikeNO")
@@ -38,7 +44,7 @@ public class Bike_fault {
 	 */
 	@Column(name = "description")
 	private String description;
-	
+
 	/**
 	 * 故障车照片
 	 */
@@ -57,8 +63,6 @@ public class Bike_fault {
 	@Column(name = "remark")
 	private String remark;
 
-
-
 	/**
 	 * 备用字段
 	 */
@@ -70,7 +74,7 @@ public class Bike_fault {
 	 */
 	@Column(name = "bank2")
 	private String bank2;
-	
+
 	/**
 	 * 备用字段
 	 */
@@ -157,4 +161,14 @@ public class Bike_fault {
 		this.bank3 = bank3;
 	}
 	
+	public String getMemberID() {
+		return memberID;
+	}
+
+	public void setMemberID(String memberID) {
+		this.memberID = memberID;
+	}
+	
+	
+
 }
