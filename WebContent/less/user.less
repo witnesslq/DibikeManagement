@@ -22,10 +22,30 @@
 
     }
 	
+	.verifyList{
+		margin: 20px auto 0;
+		overflow: hidden;
+		
+		>li{
+			width: 100px;
+			height: 40px;
+			line-height: 40px;
+			float: left;
+			text-align: center;
+			cursor: pointer;
+			
+			&.selected{
+				background: #109ba3;
+				color: #fff;
+			}
+		}
+	}
+	
 	.uname_bar{
 		margin: 20px auto 20px;
 		border-top: 1px solid #000;
     	border-left: 1px solid #000;
+    	display:none;
 		
 		tr{
 			
@@ -50,6 +70,17 @@
 			    color: #222;
 			    background: #eb6588;
 			    border-right: 1px solid #000;
+			    
+			    input{
+			    	width: 60px;
+			    	height: 30px;
+			    	line-height: 30px;
+			    	text-align: center;
+			    	color: #fff;
+			    	background: #109ba3;
+			    	border: 0 none;
+			    	border-radius: 10px;
+			    }
 			}
 		
 		}
