@@ -20,14 +20,97 @@
                 <section class="section-box">
                     <div class="mp_news__box">
                         <div class="title_bar">实名认证</div>
+                        <ul class="verifyList">
+							<li class="selected">全部</li>
+							<li>未审核</li>
+							<li>已审核</li>
+							<li>审核驳回</li>
+						</ul>
                        	<table class="uname_bar">
 							<thead>
 								<tr>
-									<th ng-repeat="list in users track by $index" ng-bind="list">姓名</th>
+									<th ng-repeat="list in users track by $index" ng-bind="list"></th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr ng-repeat="data in checks track by $index">
+								<tr ng-repeat="data in queryNoCheck track by $index">
+									<td ng-bind="data.name"></td>
+									<td ng-bind="data.nationality"></td>
+									<td>
+										<img ng-src="{{data.hand_certificate}}" />
+										<img ng-src="{{data.hand_certificate}}" />
+									</td>
+									<td ng-click="audit(data.memberID)">审核</td>
+								</tr>
+								<tr ng-repeat="data in queryPass track by $index">
+									<td ng-bind="data.name"></td>
+									<td ng-bind="data.nationality"></td>
+									<td>
+										<img ng-src="{{data.hand_certificate}}" />
+										<img ng-src="{{data.hand_certificate}}" />
+									</td>
+									<td ng-click="audit(data.memberID)">审核</td>
+								</tr>
+								<tr ng-repeat="data in queryNoPass track by $index">
+									<td ng-bind="data.name"></td>
+									<td ng-bind="data.nationality"></td>
+									<td>
+										<img ng-src="{{data.hand_certificate}}" />
+										<img ng-src="{{data.hand_certificate}}" />
+									</td>
+									<td ng-click="audit(data.memberID)">审核</td>
+								</tr>
+							</tbody>
+						</table>
+						<table class="uname_bar">
+							<thead>
+								<tr>
+									<th ng-repeat="list in users track by $index" ng-bind="list"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="data in queryNoCheck track by $index">
+									<td ng-bind="data.name"></td>
+									<td ng-bind="data.nationality"></td>
+									<td>
+										<img ng-src="{{data.hand_certificate}}" />
+										<img ng-src="{{data.hand_certificate}}" />
+									</td>
+									<td>
+										<input type="button" value="通过" ng-click="pass(data.memberID)"/>
+										<input type="button" value="不通过" ng-click="nopass(data.memberID)"/>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<table class="uname_bar">
+							<thead>
+								<tr>
+									<th ng-repeat="list in users track by $index" ng-bind="list"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="data in queryPass track by $index">
+									<td ng-bind="data.name"></td>
+									<td ng-bind="data.nationality"></td>
+									<td>
+										<img ng-src="{{data.hand_certificate}}" />
+										<img ng-src="{{data.hand_certificate}}" />
+									</td>
+									<td>
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<table class="uname_bar">
+							<thead>
+								<tr>
+									<th ng-repeat="list in users track by $index" ng-bind="list"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="data in queryNoPass track by $index">
 									<td ng-bind="data.name"></td>
 									<td ng-bind="data.nationality"></td>
 									<td>

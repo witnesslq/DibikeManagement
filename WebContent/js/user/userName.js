@@ -32,23 +32,68 @@ vm.controller('userList',['$scope','$http',function($scope,$http){
 	
 	$http({
 		method:'POST',
-		url:'/DibikeManagement/certification/check.do',
+		url:'/DibikeManagement/certification/queryNoCheck.do',
 		dataType:'json',
 	}).success(function(result){
-		$scope.checks=result.data;
+		$scope.queryNoCheck=result.data;
 			
 	}).error(function(result){
 			
 	});
 	
-	$scope.audit=function(memberID){
-		console.log(memberID);
+	$http({
+		method:'POST',
+		url:'/DibikeManagement/certification/queryPass.do',
+		dataType:'json',
+	}).success(function(result){
+		$scope.queryPass=result.data;
+			
+	}).error(function(result){
+			
+	});
+	
+	$http({
+		method:'POST',
+		url:'/DibikeManagement/certification/queryNoPass.do',
+		dataType:'json',
+	}).success(function(result){
+		$scope.queryNoPass=result.data;
+			
+	}).error(function(result){
+			
+	});
+	
+	$('.uname_bar').first().show();
+	
+	$('.verifyList li').on('click',function(){
+		var _index=$(this).index();
+		$(this).addClass('selected').siblings().removeClass('selected');
+		$('.uname_bar').eq(_index).show().siblings('.uname_bar').hide();
+		
+	});
+	
+	$scope.pass=function(memberID){
 		$http({
 			method:'POST',
 			params:{
 				"memberID":memberID
 			},
-			url:'/DibikeManagement/certification/check.do',
+			url:'/DibikeManagement/certification/checkPass.do',
+		}).success(function(result){
+			
+				
+		}).error(function(result){
+				
+		});
+	}
+	
+	$scope.nopass=function(memberID){
+		$http({
+			method:'POST',
+			params:{
+				"memberID":memberID
+			},
+			url:'/DibikeManagement/certification/checkNoPass.do',
 		}).success(function(result){
 			
 				
